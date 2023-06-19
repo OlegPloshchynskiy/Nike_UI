@@ -1,0 +1,11 @@
+.cards_block {
+    display: flex;
+    gap: 20px;
+}
+
+.title {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 23px;
+    line-height: 28px;
+}

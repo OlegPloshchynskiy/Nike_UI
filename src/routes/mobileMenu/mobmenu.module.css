@@ -1,0 +1,28 @@
+.shadow {
+    width: 100%;
+    height: 100%;
+    background: #00000075;
+    backdrop-filter: blur(2px);
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    animation: show .3s ;
+}
+
+@keyframes show {
+    from {
+        background: #00000000;
+        backdrop-filter: blur(0px);
+    }
+}
+
+.sidebar {
+    width: 50%;
+    height: 100%;
+    background: #ffffff;
+    animation: slide .3s ;
+}
+
+@keyframes slide {
+    from {width: 0%;}
+}

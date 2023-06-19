@@ -1,0 +1,23 @@
+.catalog {
+    margin-top: 87px;
+    margin-bottom: 56px;
+    display: flex;
+    gap: 48px;
+}
+
+ul>li {
+    list-style: none;
+    margin: 9px 0;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 24px;
+    cursor: pointer;
+
+    &:nth-child(1) {
+        font-weight: 600;
+        margin-bottom: 15px;
+        cursor: default;
+    }
+
+}
