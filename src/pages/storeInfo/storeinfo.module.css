@@ -3,6 +3,7 @@
     display: flex;
     align-items: flex-start;
     justify-content: center;
+    margin: 50px 0;
 }
 
 .go_back {
@@ -10,6 +11,8 @@
     color: black;
     font-weight: 600;
     font-size: 20px;
+    border: none;
+    background: none;
 }
 
 .go_back::before {
@@ -17,4 +20,8 @@
     position: absolute;
     top: 1px;
     left: -20px;
+}
+
+.under_image {
+    font-size: 20px;
 }
