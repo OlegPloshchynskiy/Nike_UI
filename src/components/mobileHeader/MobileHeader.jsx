@@ -18,8 +18,6 @@ const MobileHeader = () => {
     menuState === 0 ? setMenuState(1) : setMenuState(0)
   }
 
-  console.log(menuState);
-
   return (
     <header>
       <nav className={style.navs}>
