@@ -53,7 +53,8 @@ const NikeMap = ({ lat, lon, nikeStores }) => {
             key={store.place_id}
             name={store.name}
             icon={{
-              url: markerIcon
+              url: markerIcon,
+              scaledSize: new google.maps.Size(40, 40)
             }}
             position={{
               lat: store.geometry.location.lat,

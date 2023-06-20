@@ -1,0 +1,20 @@
+.header {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.go_back {
+    position: relative;
+    color: black;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.go_back::before {
+    content: url("../../../public/images/chevron-left.png");
+    position: absolute;
+    top: 1px;
+    left: -20px;
+}

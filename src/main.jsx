@@ -9,6 +9,7 @@ import Help from "./pages/help/Help.jsx";
 
 import "normalize.css";
 import "./index.css";
+import StoreInfo from "./pages/storeInfo/StoreInfo.jsx";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
   {
     path: "/help",
     element: <Help />
+  },
+  {
+    path: "/storeinfo",
+    element: <StoreInfo />
   }
 ])
 

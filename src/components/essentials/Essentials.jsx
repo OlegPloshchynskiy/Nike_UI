@@ -11,7 +11,7 @@ const Essentials = () => {
         <p className={style.title}>The Essentials</p>
         <div className={style.cards_block}>
             <Cards src={mans} title="Men`s" color="white" />
-            <Cards src={womans} title="Woen`s" color="white" />
+            <Cards src={womans} title="Women`s" color="white" />
             <Cards src={kids} title="Kids`" color="white" />
         </div>
     </div>

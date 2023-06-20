@@ -21,8 +21,76 @@
     height: 100%;
     background: #ffffff;
     animation: slide .3s ;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    padding-left: 15px;
 }
 
 @keyframes slide {
     from {width: 0%;}
+}
+
+.close_btn {
+    border: none;
+    background: none;
+    align-self: flex-end;
+    margin: 20px 10px;
+}
+
+.headerMenu {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.menu_block {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.profile_link {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+}
+
+.profile_link::after {
+    content: url("../../../public/images/chevron-right.png");
+    position: absolute;
+    right: 10px;
+}
+
+.menuItem {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.menuItem::after {
+    content: url("../../../public/images/chevron-right.png");
+    position: absolute;
+    right: 10px;
+}
+
+.bannerMenu {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.menuItemProfiles {
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }

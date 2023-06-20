@@ -55,3 +55,16 @@
 .red {
     color: #D43F21;
 }
+
+.store_info_link {
+    color: unset;
+    text-decoration: none;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    transition: .3s;
+
+    &:hover {
+        border-color: grey;
+    }
+
+}

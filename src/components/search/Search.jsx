@@ -1,8 +1,9 @@
 import React from "react";
-import style from "./search.module.css";
 import Button from "../button/Button";
 import search from "../../../public/images/search-icon.png";
 import { Link } from "react-router-dom";
+
+import style from "./search.module.css";
 
 const Search = ({ func, btnFunc, nikeStores }) => {
   return (
@@ -22,14 +23,18 @@ const Search = ({ func, btnFunc, nikeStores }) => {
       <div className={style.filter}>
         {nikeStores.map((store, index) => {
           return (
-            <div className={style.card} key={index}>
-              <h2>{store.name}</h2>
-              <p>{store.vicinity}</p>
-              <p>{store.plus_code.compound_code}</p>
-              <p className={store.opening_hours ? style.green : style.red}>
-                {store.opening_hours ? "Open" : "Closed"}
-              </p>
-            </div>
+            <Link className={style.store_info_link} to="/storeinfo">
+              <div className={style.card} key={index}>
+                <h2>{store.name}</h2>
+                <p>{store.vicinity}</p>
+                <p>{store.plus_code.compound_code}</p>
+                <p className={store.opening_hours ? style.green : style.red}>
+                  {store.opening_hours
+                    ? "Open • Closes at 10:00 PM"
+                    : "Closed • Opens at 11:00 AM"}
+                </p>
+              </div>
+            </Link>
           );
         })}
       </div>
