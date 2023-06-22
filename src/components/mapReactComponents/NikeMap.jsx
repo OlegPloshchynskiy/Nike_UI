@@ -10,12 +10,12 @@ import { mapService } from '../../services/MapServices';
 
 const NikeMap = ({ lat, lon, nikeStores }) => {
 
-  const MapServices = mapService;
-
   const mapStyles = {
     width: '960px', 
     height: '720px',  
   }; 
+  
+  console.log(nikeStores);
   
   return (
     <div className={style.containerStyle}> 
@@ -50,6 +50,7 @@ const NikeMap = ({ lat, lon, nikeStores }) => {
       >
         {nikeStores.map((store) => (
           <Marker
+            className={style.marker}
             key={store.place_id}
             name={store.name}
             icon={{

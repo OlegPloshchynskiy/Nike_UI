@@ -6,19 +6,19 @@ import style from "./header.module.css";
 const RootHeader = () => {
   return (
     <nav className={style.headerMenu}>
-      <Link to="findstore" className={style.menuItem}>
+      <Link to="/shop" className={style.menuItem}>
         New & Featured
       </Link>
-      <Link to="findstore" className={style.menuItem}>
+      <Link to="/shop" className={style.menuItem}>
         Men
       </Link>
-      <Link to="findstore" className={style.menuItem}>
+      <Link to="/shop" className={style.menuItem}>
         Women
       </Link>
-      <Link to="findstore" className={style.menuItem}>
+      <Link to="/shop" className={style.menuItem}>
         Kids
       </Link>
-      <Link to="findstore" className={style.menuItem}>
+      <Link to="/shop" className={style.menuItem}>
         Sale
       </Link>
       <Link to="findstore" className={style.menuItem}>

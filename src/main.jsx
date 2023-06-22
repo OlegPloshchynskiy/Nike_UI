@@ -10,6 +10,7 @@ import Help from "./pages/help/Help.jsx";
 import "normalize.css";
 import "./index.css";
 import StoreInfo from "./pages/storeInfo/StoreInfo.jsx";
+import Shop from "./pages/shop/Shop.jsx";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
   {
     path: "/storeinfo",
     element: <StoreInfo />
+  },
+  {
+    path: "/shop",
+    element: <Shop />
   }
 ])
 
