@@ -1,5 +1,10 @@
+@font-face {
+    font-family: "helvetica";
+    src: url("../public/fonts/helvetica-neue_6DzQQ/Helvetica\ Neue\ Regular.otf");
+}
+
 #root {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "helvetica";
 }
 
 body {

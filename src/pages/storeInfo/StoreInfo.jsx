@@ -13,16 +13,25 @@ import style from "./storeinfo.module.css";
 import Button from "../../components/button/Button";
 
 const StoreInfo = () => {
+
+  const coordinates = JSON.parse(localStorage.getItem("coordinates")) || " ";
+  
+  
   const MapServices = mapService;
-
+  
   const [nikeStores, setNikeStores] = useState([]);
-
+  
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const lat = queryParams.get("lat");
   const lon = queryParams.get("lon");
-  console.log(lat, lon);
+  
+  const url = `https://www.google.com/maps/dir/${coordinates}/${lat},${lon}`;
 
+  const openNavigate = () => {
+    window.open(url)
+  }
+  
   useEffect(() => {
     const fetchNikeStores = async () => {
       try {
@@ -35,6 +44,10 @@ const StoreInfo = () => {
     fetchNikeStores();
   }, [lat, lon]);
 
+  const navigate = () => {
+
+  }
+
   return (
     <Layout>
       <header className={style.header}>
@@ -45,10 +58,11 @@ const StoreInfo = () => {
       <Container>
         <img src={banner} alt="" width="100%" />
         <div className={style.store_info}>
-          {nikeStores.map((store) => {
+          {nikeStores.map((store, index) => {
             return (
-              <div>
+              <div key={index}>
                 <h1>{store.name}</h1>
+                <p className={style.rating}>{store.rating}</p>
                 <p
                   className={
                     store.opening_hours.open_now === true
@@ -63,7 +77,7 @@ const StoreInfo = () => {
                 <br />
                 <p>{store.vicinity}</p>
                 <p>{store.plus_code.compound_code}</p>
-                <Button title="Navigate" />
+                <Button title="Navigate" func={openNavigate} />
               </div>
             );
           })}

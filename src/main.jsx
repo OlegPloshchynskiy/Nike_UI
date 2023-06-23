@@ -11,6 +11,7 @@ import "normalize.css";
 import "./index.css";
 import StoreInfo from "./pages/storeInfo/StoreInfo.jsx";
 import Shop from "./pages/shop/Shop.jsx";
+import GoodsPage from "./pages/goods_page/GoodsPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
   {
     path: "/shop",
     element: <Shop />
+  },
+  {
+    path: "/goods_page",
+    element: <GoodsPage />
   }
 ])
 

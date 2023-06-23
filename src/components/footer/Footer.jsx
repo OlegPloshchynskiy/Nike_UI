@@ -9,6 +9,9 @@ import youtube from '../../../public/images/footer-links/youtube.png'
 import instagram from '../../../public/images/footer-links/instagram.png'
 
 const Footer = () => {
+
+  // const savedLocation = JSON.parse(localStorage.getItem("location")) || "Loading..."
+
   const [cureLocation, setCureLocation] = useState("Loading...");
 
 
@@ -28,6 +31,8 @@ const Footer = () => {
         const response = await fetch(URL, options);
         const data = await response.json();
         const countryName = data.country.name;
+        const coordinates = `${data.location.latitude}, ${data.location.longitude}`
+        localStorage.setItem("coordinates", JSON.stringify(coordinates))
         setCureLocation(countryName);
       } catch (error) {
         console.error("Error fetching location:", error);
