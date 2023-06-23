@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import Layout from "../../layout/Layout";
 import Button from "../../components/button/Button";
@@ -28,6 +28,7 @@ const GoodsPage = () => {
 
   return (
     <Layout>
+      <Link to="/shop" className={style.go_back}><h2>Back to Shop</h2></Link>
       <div className={style.goods}>
         <div className={style.goods_images}>
           <div className={style.loading}>

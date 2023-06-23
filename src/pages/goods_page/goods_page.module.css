@@ -75,3 +75,16 @@
     line-height: 32px;
     margin: 72px 0;
 }
+
+.go_back {
+    color: black;
+    position: relative;
+    align-self: flex-start;
+
+    &::before {
+        content: url("../../../public/images/chevron-left.png");
+        position: absolute;
+        top: 26px;
+        left: -20px;
+    }
+}

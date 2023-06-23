@@ -36,7 +36,7 @@ const Shop = () => {
       }
     };
     fetchNikeShoe();
-  }, [page]);
+  }, [savedPage]);
 
   return (
     <Layout>
