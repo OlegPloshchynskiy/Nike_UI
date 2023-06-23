@@ -25,3 +25,16 @@
 .under_image {
     font-size: 20px;
 }
+
+.store_info {
+    width: 100%;
+    padding: 50px 0;
+    display: flex;
+    justify-content: center;
+    gap: 300px;
+    flex-wrap: wrap;
+    /* align-items: flex-end; */
+}
+
+.green {color: green;}
+.red {color: red;}

@@ -20,7 +20,7 @@ const FindStore = () => {
   useEffect(() => {
     const fetchNikeStores = async () => {
       try {
-        const response = await MapServices.getStores(lat, lon);
+        const response = await MapServices.getStores(lat, lon, 50000);
         setNikeStores(response.data.results);
       } catch (error) {
         console.log("Error fetching Nike stores:", error);
