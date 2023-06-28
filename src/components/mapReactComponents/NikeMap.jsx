@@ -8,17 +8,19 @@ import markerIcon from '../../../public/images/location-marker.png'
 import style from './map.module.css'
 import { mapService } from '../../services/MapServices';
 
-const NikeMap = ({ lat, lon, nikeStores }) => {
-
+const NikeMap = ({ lat, lon, nikeStores, width }) => {
+ 
   const mapStyles = {
-    width: '960px', 
-    height: '720px',  
+    width: width, 
+    height: '720px',
+    top: 0,
+    left: 0
   }; 
   
   console.log(nikeStores);
   
   return (
-    <div className={style.containerStyle}> 
+    <div className={style.container}> 
       <Map
         google={google}
         zoom={10}  
@@ -48,10 +50,10 @@ const NikeMap = ({ lat, lon, nikeStores }) => {
           },
         ]} 
       >
-        {nikeStores.map((store) => (
+        {nikeStores.map((store, index) => (
           <Marker
             className={style.marker}
-            key={store.place_id}
+            key={index}
             name={store.name}
             icon={{
               url: markerIcon,
@@ -61,7 +63,7 @@ const NikeMap = ({ lat, lon, nikeStores }) => {
               lat: store.geometry.location.lat,
               lng: store.geometry.location.lng
             }}
-          />   
+          />    
         ))}
       </Map>
     </div>

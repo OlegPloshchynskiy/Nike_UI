@@ -1,15 +1,32 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-import Search from "../../components/search/Search";
-
 import style from "./findstore.module.css";
 import Layout from "../../layout/Layout";
-import NikeMap from "../../components/mapReactComponents/NikeMap";
 
 import { mapService } from "../../services/MapServices";
+import DesktopMap from "./desktop/DesktopMap";
+import MobileMap from "./mobile/MobileMap";
 
 const FindStore = () => {
+  const [isLargeScreen, setIsLargeScreen] = useState(
+    window.matchMedia("(min-width: 1270px)").matches
+  );
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(min-width: 1270px)");
+
+    const handleResize = (event) => {
+      setIsLargeScreen(event.matches);
+    };
+
+    mediaQuery.addListener(handleResize);
+
+    return () => {
+      mediaQuery.removeListener(handleResize);
+    };
+  }, []);
+
   const MapServices = mapService;
 
   const [country, setCountry] = useState("");
@@ -49,16 +66,23 @@ const FindStore = () => {
 
   return (
     <Layout>
-      <div className={style.container}>
-        <Search
-          func={searchCountry}
-          btnFunc={fetchCountry}
+      {isLargeScreen ? ( 
+        <DesktopMap
+          searchCountry={searchCountry}
+          fetchCountry={fetchCountry}
           nikeStores={nikeStores}
+          lat={lat}
+          lon={lon}
         />
-        <div className={style.block}>
-          <NikeMap lat={lat} lon={lon} nikeStores={nikeStores} />
-        </div>
-      </div>
+      ) : (
+        <MobileMap
+          searchCountry={searchCountry}
+          fetchCountry={fetchCountry}
+          nikeStores={nikeStores}
+          lat={lat}
+          lon={lon}
+        />
+      )}
     </Layout>
   );
 };

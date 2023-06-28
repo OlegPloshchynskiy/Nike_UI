@@ -1,0 +1,15 @@
+.content {
+    width: 100%;
+    margin-top: 20px;
+    padding-top: 5px;
+    border-top: 1px solid #e7e7e7;
+}
+
+.link {
+    all: unset;
+    padding: 7px 30px;
+    border-bottom: 2px solid transparent;
+}
+
+#active {border-bottom-color: black ;}
+#unactive {border-bottom-color: transparent ;}

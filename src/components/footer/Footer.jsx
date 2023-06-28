@@ -10,8 +10,6 @@ import instagram from '../../../public/images/footer-links/instagram.png'
 
 const Footer = () => {
 
-  // const savedLocation = JSON.parse(localStorage.getItem("location")) || "Loading..."
-
   const [cureLocation, setCureLocation] = useState("Loading...");
 
 
@@ -22,7 +20,8 @@ const Footer = () => {
       "X-RapidAPI-Key": "5884794babmsh5cc357571f33b3bp121611jsn3e839091c9fe",
       "X-RapidAPI-Host": "ip-geo-location.p.rapidapi.com",
     },
-  };
+  }; 
+  
 
   useEffect(() => {
 
@@ -31,8 +30,11 @@ const Footer = () => {
         const response = await fetch(URL, options);
         const data = await response.json();
         const countryName = data.country.name;
-        const coordinates = `${data.location.latitude}, ${data.location.longitude}`
-        localStorage.setItem("coordinates", JSON.stringify(coordinates))
+        const lat = data.location.latitude;
+        const lon = data.location.longitude;
+
+        localStorage.setItem("lat", JSON.stringify(lat));
+        localStorage.setItem("lon", JSON.stringify(lon));
         setCureLocation(countryName);
       } catch (error) {
         console.error("Error fetching location:", error);

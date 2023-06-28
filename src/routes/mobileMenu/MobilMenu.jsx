@@ -24,22 +24,22 @@ const MobilMenu = ({ close }) => {
             <span>Hello, User</span>
           </Link>
           <nav className={style.headerMenu}>
-            <Link to="/findstore" className={style.menuItem}>
+            <Link to="/shop" className={style.menuItem}>
               New & Featured
             </Link>
-            <Link to="/findstore" className={style.menuItem}>
+            <Link to="/shop" className={style.menuItem}>
               Men
             </Link>
-            <Link to="/findstore" className={style.menuItem}>
+            <Link to="/shop" className={style.menuItem}>
               Women
             </Link>
-            <Link to="/findstore" className={style.menuItem}>
+            <Link to="/shop" className={style.menuItem}>
               Kids
             </Link>
-            <Link to="/findstore" className={style.menuItem}>
+            <Link to="/shop" className={style.menuItem}>
               Sale
             </Link>
-            <Link to="/findstore" className={style.menuItem}>
+            <Link to="/shop" className={style.menuItem}>
               SNKRS
             </Link>
           </nav>
@@ -64,7 +64,7 @@ const MobilMenu = ({ close }) => {
               <img src={orders} alt="" />
               <span>Orders</span>
             </Link>
-            <Link to="/help" className={style.menuItemProfiles}>
+            <Link to="/findstore" className={style.menuItemProfiles}>
               <img src={store} alt="" />
               <span>Find a Store </span>
             </Link>

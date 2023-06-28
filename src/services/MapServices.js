@@ -13,5 +13,5 @@ class MapService {
     return response;
   }
 }
-
+ 
 export const mapService = new MapService();

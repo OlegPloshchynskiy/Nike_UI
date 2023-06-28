@@ -44,10 +44,6 @@ const StoreInfo = () => {
     fetchNikeStores();
   }, [lat, lon]);
 
-  const navigate = () => {
-
-  }
-
   return (
     <Layout>
       <header className={style.header}>

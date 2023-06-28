@@ -8,9 +8,6 @@ import style from "./search.module.css";
 const Search = ({ func, btnFunc, nikeStores }) => {
   return (
     <div className={style.container}>
-
-      
-
       <p className={style.title}>Find a Nike Store</p>
       <div className={style.search_box}>
         <img src={search} alt="" />
@@ -28,8 +25,8 @@ const Search = ({ func, btnFunc, nikeStores }) => {
           const targetLat = `${store.geometry.location.lat}`;
           const targetLon = `${store.geometry.location.lng}`;
           return (
-            <Link className={style.store_info_link} to={`/storeinfo?lat=${targetLat}&lon=${targetLon}`} >
-              <div className={style.card} key={index}>
+            <Link className={style.store_info_link} key={index} to={`/storeinfo?lat=${targetLat}&lon=${targetLon}`} >
+              <div className={style.card} >
                 <h2>{store.name}</h2>
                 <p>{store.vicinity}</p>
                 <p>{store.plus_code.compound_code}</p>
