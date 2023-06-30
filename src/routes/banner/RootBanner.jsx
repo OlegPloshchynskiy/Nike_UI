@@ -10,7 +10,7 @@ const RootBanner = () => {
       <div className={style.v_line}></div>
       <Link to="/help" className={style.menuItem}>Help</Link>
       <div className={style.v_line}></div>
-      <Link to="/findstore" className={style.menuItem}>Join Us</Link>
+      <Link to="/join_us" className={style.menuItem}>Join Us</Link>
       <div className={style.v_line}></div>
       <Link to="/findstore" className={style.menuItem}>Sign In</Link>
     </nav>

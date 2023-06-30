@@ -1,5 +1,4 @@
 import React from "react";
-import style from "./mobmenu.module.css";
 import close_icon from "../../../public/images/x-lg.png";
 import { Link } from "react-router-dom";
 
@@ -11,9 +10,18 @@ import orders from "../../../public/images/orders-icon.png";
 import store from "../../../public/images/store-icon.png";
 import help from "../../../public/images/help-icon.png";
 
+import { Toaster } from "react-hot-toast";
+
+import style from "./mobmenu.module.css";
+
 const MobilMenu = ({ close }) => {
+
+  const bag = JSON.parse(localStorage.getItem("bagCount")) || 0;
+  const fav = JSON.parse(localStorage.getItem("favCount")) || 0;
+
   return (
     <div className={style.shadow}>
+      <Toaster position="top-center" reverseOrder={false} />
       <div className={style.sidebar}>
         <div className={style.menu_block}>
           <button onClick={close} className={style.close_btn}>
@@ -55,10 +63,12 @@ const MobilMenu = ({ close }) => {
             <Link to="/findstore" className={style.menuItemProfiles}>
               <img src={favourite} alt="" />
               <span>Favourites</span>
+              <div className={style.count}>{fav}</div>
             </Link>
             <Link to="/findstore" className={style.menuItemProfiles}>
               <img src={cart} alt="" />
               <span>Bag</span>
+              <div className={style.count}>{bag}</div>
             </Link>
             <Link to="/findstore" className={style.menuItemProfiles}>
               <img src={orders} alt="" />

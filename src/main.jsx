@@ -12,6 +12,7 @@ import "./index.css";
 import StoreInfo from "./pages/storeInfo/StoreInfo.jsx";
 import Shop from "./pages/shop/Shop.jsx";
 import GoodsPage from "./pages/goods_page/GoodsPage.jsx";
+import Registration from "./components/forms/registration/Registration.jsx";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
   {
     path: "/goods_page",
     element: <GoodsPage />
+  },
+  {
+    path: "/join_us",
+    element: <Registration />
   }
 ])
 

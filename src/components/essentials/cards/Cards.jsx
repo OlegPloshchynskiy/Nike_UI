@@ -12,7 +12,7 @@ const Cards = ({ src, title }) => {
 
   return (
     <div style={{position: "relative"}}>
-      <img src={src} alt="" />
+      <img src={src} alt="" width="100%" />
       <Button title={title} styles={styles} />
     </div>
   );

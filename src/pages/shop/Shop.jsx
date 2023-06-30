@@ -1,21 +1,20 @@
 import React, { useEffect, useState } from "react";
-import Layout from "../../layout/Layout";
 
 import { storeService } from "../../services/StoreServices";
 
-import style from "./shop.module.css";
+import Layout from "../../layout/Layout";
 import Button from "../../components/button/Button";
 import { Link } from "react-router-dom";
+
+import style from "./shop.module.css";
 
 const Shop = () => {
   const StoreServices = storeService;
 
-  const savedPage = JSON.parse(sessionStorage.getItem("page")) || 1;
+  const savedPage = JSON.parse(sessionStorage.getItem("page"));
 
   const [shoe, setShoe] = useState([]);
   const [page, setPage] = useState(1);
-
-  console.log(page);
 
   const handlePageCount = (e) => {
     sessionStorage.setItem("page", JSON.stringify(e.target.value))
@@ -41,10 +40,14 @@ const Shop = () => {
   return (
     <Layout>
       <div className={style.content}>
+
+        <h1>Shop</h1>
+
         <div className={style.gallary}>
           {shoe.map((goods, index) => {
+            let price = Math.floor(Math.random() * (460 - 90 + 1)) + 90;
             return (
-              <Link className={style.card} key={index} to={`/goods_page?goods_details=${goods.urls.small}`}>
+              <Link className={style.card} key={index} to={`/goods_page?goods_details=${goods.urls.small}&price=${price}`}>
                 <img
                   src={goods.urls.small}
                   alt=""
@@ -57,7 +60,7 @@ const Shop = () => {
                   <p className={style.type}>
                     Men's Shoes <br /> 1 Colour
                   </p>
-                  <p className={style.price}>Price: 130$</p>
+                  <p className={style.price}>Price: {price} $</p>
                 </div>
               </Link>
             );
@@ -70,9 +73,6 @@ const Shop = () => {
           <Button title="4" func={handlePageCount} value="4" />
           <Button title="5" func={handlePageCount} value="5" />
           <Button title="6" func={handlePageCount} value="6" />
-          <Button title="7" func={handlePageCount} value="7" />
-          <Button title="8" func={handlePageCount} value="8" />
-          <Button title="9" func={handlePageCount} value="9" />
         </div>
       </div>
     </Layout>

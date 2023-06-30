@@ -14,19 +14,17 @@ import Layout from "./layout/Layout";
 
 function App() {
   return (
-    <>
-      <Layout>
-        <Preview />
-        <FirstLook />
-        <BestOfAir />
-        <Featured />
-        <StepInto />
-        <GearUp />
-        <Dontmiss />
-        <Essentials />
-        <Catalog />
-      </Layout>
-    </>
+    <Layout>
+      <Preview />
+      <FirstLook />
+      <BestOfAir />
+      <Featured />
+      <StepInto />
+      <GearUp />
+      <Dontmiss />
+      <Essentials />
+      <Catalog />
+    </Layout>
   );
 }
 

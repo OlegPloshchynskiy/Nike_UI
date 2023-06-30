@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 
 import MobileMenu from "../../routes/mobileMenu/MobilMenu";
 
@@ -12,6 +13,8 @@ import style from "./mobileheader.module.css";
 
 const MobileHeader = () => {
 
+  const bag = JSON.parse(localStorage.getItem("bagCount")) || 0;
+
   const [menuState, setMenuState] = useState(0);
 
   const handleMenu = () => {
@@ -20,13 +23,16 @@ const MobileHeader = () => {
 
   return (
     <header>
+      <Toaster position="top-center" reverseOrder={false} />
+
       <nav className={style.navs}>
         <Link to="/">
           <img src={nike_logo} alt="Nike logo" />
         </Link>
         <div className={style.menu_block}>
-          <Link to="/">
+          <Link to="/" className={style.bag}>
             <img src={cart_icon} alt="Cart" />
+            <div className={style.count}>{bag}</div>
           </Link>
           <button className={style.menu_btn} onClick={handleMenu}>
             <img src={list} alt="List button" />

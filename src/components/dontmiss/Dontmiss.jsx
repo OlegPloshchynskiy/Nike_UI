@@ -12,7 +12,7 @@ const Dontmiss = () => {
   return (
     <div style={{marginTop: "84px"}}>
         <p style={styles}>Dont Miss</p>
-        <img src={image} alt="" />
+        <img src={image} alt="" width="100%"/>
 
         <div className={style.text_container}>
             <div className={style.title}>FLIGHT ESSENTIALS</div>

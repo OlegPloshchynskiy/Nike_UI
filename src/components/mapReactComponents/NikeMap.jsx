@@ -6,9 +6,8 @@ import axios from 'axios';
 import markerIcon from '../../../public/images/location-marker.png'
 
 import style from './map.module.css'
-import { mapService } from '../../services/MapServices';
 
-const NikeMap = ({ lat, lon, nikeStores, width }) => {
+const NikeMap = ({ nikeStores, width }) => {
  
   const mapStyles = {
     width: width, 
@@ -16,8 +15,11 @@ const NikeMap = ({ lat, lon, nikeStores, width }) => {
     top: 0,
     left: 0
   }; 
-  
-  console.log(nikeStores);
+
+  const lat = JSON.parse(sessionStorage.getItem("lat"));
+  const lon = JSON.parse(sessionStorage.getItem("lon"));
+
+  console.log(lat);
   
   return (
     <div className={style.container}> 

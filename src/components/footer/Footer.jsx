@@ -35,6 +35,7 @@ const Footer = () => {
 
         localStorage.setItem("lat", JSON.stringify(lat));
         localStorage.setItem("lon", JSON.stringify(lon));
+
         setCureLocation(countryName);
       } catch (error) {
         console.error("Error fetching location:", error);

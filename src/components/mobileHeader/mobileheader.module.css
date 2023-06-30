@@ -47,3 +47,23 @@ header {
     background: #F5F5F5;
     border-radius: 25px;
 }
+
+.bag {
+    position: relative;
+}
+
+.count {
+    font-size: 10px;
+    color: white;
+    background: #000;
+    border-radius: 50%;
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center; 
+}

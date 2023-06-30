@@ -4,9 +4,9 @@ class StoreService {
   async getShoe(page) {
     const response = await axios.get("https://api.unsplash.com/search/photos", {
       params: {
-        query: "shoes-nike",
+        query: "nike-shoes",
         client_id: "81HvXOHEMhKxfEjbbXgJ3cFrgJrKsyuxm0Jx3weBVrQ",
-        per_page: 1000,
+        per_page: 100,
         page: page
       },
     });

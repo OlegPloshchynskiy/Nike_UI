@@ -1,5 +1,4 @@
 import React from "react";
-import style from "./gearup.module.css";
 import Slider from "./slider/Slider";
 
 import man_1 from "../../../public/images/gear-up-slider/man/shorts-black-short.jpg";
@@ -15,6 +14,8 @@ import woman_3 from "../../../public/images/gear-up-slider/woman/shorts-black.jp
 import woman_4 from "../../../public/images/gear-up-slider/woman/t-short-blue.jpg";
 import woman_5 from "../../../public/images/gear-up-slider/woman/shorts-green.jpg";
 import woman_6 from "../../../public/images/gear-up-slider/woman/top-blue.jpg";
+
+import style from "./gearup.module.css";
 
 const slidesMan = [
   {
