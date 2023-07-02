@@ -28,8 +28,6 @@ const Preview = () => {
 
   checkID();
 
-  console.log(slide);
-
   return (
     <div className={style.container}>
       <span className={style.title_container}>

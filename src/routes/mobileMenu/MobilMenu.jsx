@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import close_icon from "../../../public/images/x-lg.png";
 import { Link } from "react-router-dom";
 
@@ -15,22 +15,60 @@ import { Toaster } from "react-hot-toast";
 import style from "./mobmenu.module.css";
 
 const MobilMenu = ({ close }) => {
-
   const bag = JSON.parse(localStorage.getItem("bagCount")) || 0;
   const fav = JSON.parse(localStorage.getItem("favCount")) || 0;
 
+  const loginedData = JSON.parse(sessionStorage.getItem("logined")) || "";
+
+  const [photo, setPhoto] = useState(avatar);
+
+  const [savedAccount, setSavedAccount] = useState([]);
+
+  useEffect(() => {
+    const checkAccount = () => {
+      const keys = Object.keys(localStorage);
+
+      keys.map((data) => {
+        if (data.startsWith("loginedUser")) {
+          const storedData = localStorage.getItem(data);
+          if (storedData !== null) {
+            const response = JSON.parse(storedData);
+            setSavedAccount((setData) => [...setData, response]);
+          }
+        }
+      });
+    };
+
+    checkAccount();
+  }, []);
+
+  const checkData = () => {
+    savedAccount.map((elem) => {
+      if (elem.email === loginedData.email) {
+        setPhoto(elem.photo);
+      }
+    });
+  };
+
   return (
-    <div className={style.shadow}>
+    <div className={style.shadow} onLoad={checkData}>
       <Toaster position="top-center" reverseOrder={false} />
       <div className={style.sidebar}>
         <div className={style.menu_block}>
           <button onClick={close} className={style.close_btn}>
             <img src={close_icon} alt="" />
           </button>
-          <Link className={style.profile_link}>
-            <img src={avatar} alt="" />
-            <span>Hello, User</span>
-          </Link>
+          {loginedData === "" ? (
+            <Link className={style.profile_link} to="/log_in">
+              <img src={photo} alt="Profile avatar" className={style.avatar} />
+              <span>Log In</span>
+            </Link>
+          ) : (
+            <Link className={style.profile_link} to="/profile">
+              <img src={photo} alt="Profile avatar" className={style.avatar} />
+              <span>Hello, {loginedData.firstname}</span>
+            </Link>
+          )}
           <nav className={style.headerMenu}>
             <Link to="/shop" className={style.menuItem}>
               New & Featured

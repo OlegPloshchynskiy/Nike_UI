@@ -82,8 +82,6 @@ const BestOfAir = () => {
     }
   }
 
-  console.log(slideCount);
-
   checkSlider();
 
   return (

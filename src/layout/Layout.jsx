@@ -5,6 +5,7 @@ import MobileHeader from "../components/mobileHeader/MobileHeader";
 import Footer from "../components/footer/Footer";
 import Container from "../components/container/Container";
 import ToTop from "../components/toTop/ToTop";
+import Preloader from "./preloader/Preloader";
 
 const Layout = ({ children }) => {
   const [isLargeScreen, setIsLargeScreen] = useState(
@@ -25,10 +26,23 @@ const Layout = ({ children }) => {
     };
   }, []);
 
+  const [showPreloader, setShowPreloader] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowPreloader(false);
+    }, 1300);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
+
   return (
     <div>
       {isLargeScreen ? <Header /> : <MobileHeader />}
       <Container>
+        {showPreloader ? <Preloader /> : <></>}
         {/* <ToTop /> */}
         {children}
       </Container>
@@ -38,7 +52,6 @@ const Layout = ({ children }) => {
 };
 
 export default Layout;
-
 
 // https://www.google.com/maps?q=49.785057,24.059494&q=50.2807271,25.9722057
 

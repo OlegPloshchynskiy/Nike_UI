@@ -11,10 +11,19 @@
     line-height: 14px;
     text-decoration: none;
     color: black;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .v_line {
     width: 2px;
     height: 18px;
     background: #000;
+}
+
+.avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
 }

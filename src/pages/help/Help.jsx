@@ -56,8 +56,12 @@ const Help = () => {
               <Link className={style.links}>join us</Link> today.
             </p>
             <div className={style.btn_block}>
-              <Button title="JOIN US" />
-              <Button title="SHOP NIKE" />
+              <Link to="/join_us">
+                <Button title="JOIN US" />
+              </Link>
+              <Link to="/shop">
+                <Button title="SHOP NIKE" />
+              </Link>
             </div>
             <p className={style.subtitle}>FAQs</p>
             <b className={style.text}>
@@ -130,11 +134,13 @@ const Help = () => {
               </div>
 
               <Link to="/findstore" className={style.link}>
-              <div className={style.navs_card}>
-                <img src={location} alt="" />
-                <p className={style.card_title}>STORE LOCATOR</p>
-                <p className={style.card_subtitle}>Find Nike retail stores near you</p>
-              </div>
+                <div className={style.navs_card}>
+                  <img src={location} alt="" />
+                  <p className={style.card_title}>STORE LOCATOR</p>
+                  <p className={style.card_subtitle}>
+                    Find Nike retail stores near you
+                  </p>
+                </div>
               </Link>
             </nav>
           </aside>

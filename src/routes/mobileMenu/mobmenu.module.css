@@ -113,3 +113,9 @@
     justify-content: center;
     text-align: center;
 }
+
+.avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}

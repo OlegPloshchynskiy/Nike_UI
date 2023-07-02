@@ -13,6 +13,8 @@ import StoreInfo from "./pages/storeInfo/StoreInfo.jsx";
 import Shop from "./pages/shop/Shop.jsx";
 import GoodsPage from "./pages/goods_page/GoodsPage.jsx";
 import Registration from "./components/forms/registration/Registration.jsx";
+import LogIn from "./components/forms/log_in/LogIn.jsx";
+import Profile from "./pages/profile/Profile.jsx";
 
 const router = createBrowserRouter([
   {
@@ -42,11 +44,19 @@ const router = createBrowserRouter([
   {
     path: "/join_us",
     element: <Registration />
+  },
+  {
+    path: "/log_in",
+    element: <LogIn />
+  },
+  {
+    path: "/profile",
+    element: <Profile />
   }
 ])
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <>
+  <React.StrictMode>
     <RouterProvider router={router}/>
-  </>
+  </React.StrictMode>
 );
