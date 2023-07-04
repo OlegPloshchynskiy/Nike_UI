@@ -1,0 +1,111 @@
+.title {
+    align-self: flex-start;
+    margin-top: 30px;
+}
+
+.about {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    margin-bottom: 84px;
+}
+
+.about>.title {
+    color: #111;
+    align-self: center;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 32px;
+}
+
+.subtitle_text {
+    color: #111;
+    text-align: center;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 100;
+    line-height: 24px;
+}
+
+.year_of_you {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 34px;
+    margin-top: 50px;
+}
+
+.benefits {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.apps {
+    margin: 50px 0;
+}
+
+.benefits>.title {
+    color: #757575;
+    text-align: center;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 24px;
+}
+
+.benefits>.subtitle {
+    color: #111;
+    text-align: center;
+    font-size: 30px;
+    font-family: Helvetica Neue;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 36px;
+}
+
+.cards_block {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.apps>.title {
+    color: #757575;
+    text-align: center;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 24px;
+}
+
+.apps>.subtitle {
+    color: #111;
+    text-align: center;
+    font-size: 30px;
+    font-family: Helvetica Neue;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 36px;
+}
+
+.foot {
+    position: relative;
+}
+
+.btn_block {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    position: absolute;
+    bottom: 10%;
+}

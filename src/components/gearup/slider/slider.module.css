@@ -12,8 +12,6 @@
     transition: .3s;
 }
 
-
-
 .slider_controls {
     display: flex;
     gap: 5px;
@@ -30,13 +28,14 @@
     justify-content: center;
     cursor: pointer;
 
-    &:nth-child(2) {
-        transform: rotate(180deg);
-    }
+}
 
-    &:hover {
-        scale: 1.07;
-    }
+.controls:nth-child(2) {
+    transform: rotate(180deg);
+}
+
+.controls:hover {
+    scale: 1.07;
 }
 
 .top {

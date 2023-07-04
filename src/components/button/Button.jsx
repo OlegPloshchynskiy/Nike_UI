@@ -1,6 +1,6 @@
 import style from "./button.module.css";
 
-const Button = ({ title, func, sFunc, styles, value }) => (
+const Button = ({ title, func, sFunc, styles, value, icon }) => (
   <button
     value={value}
     className={style.button}
@@ -9,6 +9,7 @@ const Button = ({ title, func, sFunc, styles, value }) => (
     onSubmit={sFunc}
   >
     {title}
+    <img src={icon} alt="" />
   </button>
 );
 

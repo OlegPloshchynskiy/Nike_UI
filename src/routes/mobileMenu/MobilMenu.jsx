@@ -59,9 +59,9 @@ const MobilMenu = ({ close }) => {
             <img src={close_icon} alt="" />
           </button>
           {loginedData === "" ? (
-            <Link className={style.profile_link} to="/log_in">
+            <Link className={style.profile_link} to="/membership">
               <img src={photo} alt="Profile avatar" className={style.avatar} />
-              <span>Log In</span>
+              <span>Profile</span>
             </Link>
           ) : (
             <Link className={style.profile_link} to="/profile">

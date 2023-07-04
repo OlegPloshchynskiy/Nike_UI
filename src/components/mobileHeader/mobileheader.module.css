@@ -30,13 +30,12 @@ header {
     background: none;
     border: none;
     outline: none;
-    padding: 0 10px;
+    padding: 0 10px;    
+}
 
-    &::placeholder {
-        color: #bcbcbc;
-        font-size: 14px;
-    }
-
+#search_input::placeholder {
+    color: #bcbcbc;
+    font-size: 14px;
 }
 
 .search_container {

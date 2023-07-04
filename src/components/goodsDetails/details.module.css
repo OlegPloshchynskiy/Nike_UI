@@ -19,14 +19,14 @@
     border-radius: 8px;
     cursor: pointer;
     transition: .3s;
+}
 
-    &:hover {
-        border-color: #636363;
-    }
+.sel_size:hover {
+    border-color: #636363;
+}
 
-    &:focus {
-        border-color: #636363;
-    }
+.sel_size:focus {
+    border-color: #636363;
 }
 
 .sizes {

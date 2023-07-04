@@ -42,7 +42,7 @@ const RootBanner = () => {
     if (loginedData === "") {
       return (
         <>
-          <Link to="/join_us" className={style.menuItem}>
+          <Link to="/membership" className={style.menuItem}>
             Join Us
           </Link>
           <div className={style.v_line}></div>

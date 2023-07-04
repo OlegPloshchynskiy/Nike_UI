@@ -14,11 +14,10 @@ ul>li {
     font-size: 15px;
     line-height: 24px;
     cursor: pointer;
+}
 
-    &:nth-child(1) {
-        font-weight: 600;
-        margin-bottom: 15px;
-        cursor: default;
-    }
-
+ul>li:nth-child(1) {
+    font-weight: 600;
+    margin-bottom: 15px;
+    cursor: default;
 }

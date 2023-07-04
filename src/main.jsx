@@ -15,6 +15,7 @@ import GoodsPage from "./pages/goods_page/GoodsPage.jsx";
 import Registration from "./components/forms/registration/Registration.jsx";
 import LogIn from "./components/forms/log_in/LogIn.jsx";
 import Profile from "./pages/profile/Profile.jsx";
+import Membership from "./pages/membership/Membership.jsx";
 
 const router = createBrowserRouter([
   {
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
   {
     path: "/profile",
     element: <Profile />
+  },
+  {
+    path: "/membership",
+    element: <Membership />
   }
 ])
 

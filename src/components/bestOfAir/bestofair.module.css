@@ -30,15 +30,14 @@
     justify-content: center;
     cursor: pointer;
     margin-bottom: 10px;
+}
 
-    &:nth-child(2) {
-        transform: rotate(-180deg);
-    }
+.controls:nth-child(2) {
+    transform: rotate(-180deg);
+}
 
-    &:hover {
-        scale: 1.07;
-    }
-
+.controls:hover {
+    scale: 1.07;
 }
 
 .slider_content {

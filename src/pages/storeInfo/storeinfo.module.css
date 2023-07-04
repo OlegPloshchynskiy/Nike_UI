@@ -40,10 +40,10 @@
 .rating {
     position: relative;
     font-size: 23px;
+}
 
-    &::after {
-        content: url("../../../public/images/star-fill.png");
-        position: absolute;
-        right: 80px;
-    }
+.rating::after {
+    content: url("../../../public/images/star-fill.png");
+    position: absolute;
+    right: 80px;
 }

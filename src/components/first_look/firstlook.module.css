@@ -1,33 +1,32 @@
 .first_look {
     text-align: center;
     margin-top: 48px;
+}
 
-    .small_title {
-        font-style: normal;
-        font-weight: 500;
-        font-size: 15px;
-        line-height: 24px;
-    }
+.small_title {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 24px;
+}
 
-    .title {
-        font-style: normal;
-        font-weight: 500;
-        font-size: 56px;
-        line-height: 60px;
-    }
+.title {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 56px;
+    line-height: 60px;
+}
 
-    .subtitle {
-        font-style: normal;
-        font-weight: 400;
-        font-size: 15px;
-        line-height: 24px;
-    }
+.subtitle {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 24px;
+}
 
-    .btn_block {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 6px;
-    }
-
+.btn_block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
 }

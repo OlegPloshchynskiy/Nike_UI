@@ -18,12 +18,11 @@
     outline: none;
     border: none;
     font-size: 19px;
-    margin-left: 5px;
+    margin-left: 5px;    
+}
 
-    &::placeholder {
-        color: #d2d2d2;
-    }
-
+#search::placeholder {
+    color: #d2d2d2;
 }
 
 .card {
@@ -39,8 +38,6 @@
     margin-top: 50px;
     max-height: 520px;
     overflow-y: scroll;
-
-
 }
 
 ::-webkit-scrollbar {width: 5px;}
@@ -61,10 +58,9 @@
     text-decoration: none;
     border: 1px solid transparent;
     border-radius: 20px;
-    transition: .3s;
+    transition: .3s;    
+}
 
-    &:hover {
-        border-color: grey;
-    }
-
+.store_info_link:hover {
+    border-color: grey;
 }

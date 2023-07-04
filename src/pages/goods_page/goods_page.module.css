@@ -53,11 +53,11 @@
     align-self: flex-start;
     margin-left: 20px;
     z-index: 1;
+}
 
-    &::before {
-        content: url("../../../public/images/chevron-left.png");
-        position: absolute;
-        top: 26px;
-        left: -20px;
-    }
+.go_back::before {
+    content: url("../../../public/images/chevron-left.png");
+    position: absolute;
+    top: 26px;
+    left: -20px;
 }
