@@ -1,16 +1,17 @@
-import React, { useState } from "react";
-
+import { useEffect, useState } from "react";
 import Button from "../button/Button";
-
 import style from "./details.module.css";
 import { toast } from "react-hot-toast";
 
-const GoodsDetails = ({ price }) => {
+const GoodsDetails = ({ price, image, type, name }) => {
+  const userData = JSON.parse(sessionStorage.getItem("logined")) || [];
+
   const btn_width = { width: "100%" };
 
   const [size, setSize] = useState(0);
-
-  console.log(size);
+  const [id, setId] = useState(0);
+  const [goodsList, setGoodsList] = useState([]);
+  const [isAdded, setIsAdded] = useState(false);
 
   const white_btn_style = {
     width: "100%",
@@ -19,44 +20,82 @@ const GoodsDetails = ({ price }) => {
     border: "1px solid grey",
   };
 
-  const targetBagCount = JSON.parse(localStorage.getItem("bagCount")) || 0;
-  const targetFavCount = JSON.parse(localStorage.getItem("favCount")) || 0;
-
-  const [bagCount, setBagCount] = useState(targetBagCount);
-  const [favCount, setFavCount] = useState(targetFavCount);
-
-  localStorage.setItem("bagCount", JSON.stringify(bagCount));
-  localStorage.setItem("favCount", JSON.stringify(favCount));
-
-  const handleBagCount = () => {
-    setBagCount(bagCount + 1);
-    toast.success("Added to Bag!", {
-      style: {
-        width: "250px",
-      },
-    });
+  const addedGoods = {
+    name: name,
+    image: image,
+    price: price,
+    type: type,
+    size: size,
   };
 
-  const handleFavCount = () => {
-    setFavCount(favCount + 1);
-    toast.success("Added to Favourited!", {
-      style: {
-        width: "250px",
-      },
+  useEffect(() => {
+    setGoodsList([...userData.goods]);
+  }, []);
+
+  const addToBag = () => {
+    if (size === 0) {
+      toast.error("Choose size!");
+      return;
+    }
+
+    if (isAdded) {
+      toast.error("Item already added to bag!");
+      return;
+    }
+
+    const keys = Object.keys(localStorage);
+    setId(id + 1);
+
+    keys.forEach((user) => {
+      if (user.startsWith("User")) {
+        const storedData = JSON.parse(localStorage.getItem(user));
+
+        if (storedData.email === userData.email) {
+          const existingObject = JSON.parse(localStorage.getItem("logined"));
+          existingObject.goods = [...goodsList, addedGoods];
+          localStorage.setItem("logined", JSON.stringify(existingObject));
+          localStorage.setItem(`${user}`, JSON.stringify(existingObject));
+          sessionStorage.setItem("logined", JSON.stringify(existingObject));
+          toast.success("Added!")
+        }
+      }
     });
+
+    setIsAdded(true);
   };
 
-  const sizeBtn = Array.from({ length: 12 }, (value=35, index) => (
-    
-    <button
-      key={index}
-      value={value}
-      onClick={(e) => setSize(e.target.value)}
-      className={style.sel_size}
-    >
-      {value}
-    </button>
-  )); 
+  const checkUserLogined = () => {
+    if (userData === "") {
+      return (window.location.href = "./log_in");
+    }
+    return true;
+  };
+
+
+  const clear = () => {
+
+    const keys = Object.keys(localStorage);
+
+    keys.forEach((user) => {
+      if (user.startsWith("loginedUser")) {
+        const storedData = JSON.parse(localStorage.getItem(user));
+
+        if (storedData.email === userData.email) {
+          const existingObject = JSON.parse(localStorage.getItem("logined"));
+          existingObject.goods = [];
+          localStorage.setItem("logined", JSON.stringify(existingObject));
+          localStorage.setItem(`${user}`, JSON.stringify(existingObject));
+          sessionStorage.setItem("logined", JSON.stringify(existingObject));
+        }
+      }
+    });
+
+    window.location.reload()
+  };
+
+
+
+
 
   return (
     <div className={style.goods_description}>
@@ -73,9 +112,7 @@ const GoodsDetails = ({ price }) => {
       <div className={style.sizes}>
         <h3>Select size</h3>
         <div className={style.btn_block}>
-          {sizeBtn}
-
-          {/* <button
+          <button
             className={style.sel_size}
             value="35"
             onClick={(e) => setSize(e.target.value)}
@@ -158,16 +195,16 @@ const GoodsDetails = ({ price }) => {
             onClick={(e) => setSize(e.target.value)}
           >
             46
-          </button> */}
+          </button>
         </div>
       </div>
 
-      <Button title="Add to Bag" styles={btn_width} func={handleBagCount} />
+      <Button title="Add to Bag" styles={btn_width} func={addToBag} />
       <br />
       <Button
         title="Favourite"
         styles={white_btn_style}
-        func={handleFavCount}
+        func={clear}
       />
       <p className={style.about_goods}>
         Layer on style with the Air Max 97. The cracked leather and soft suede

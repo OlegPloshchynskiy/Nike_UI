@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Layout from "../../../layout/Layout";
 
 import nike_logo from "../../../../public/images/Nike-logo.png";
@@ -55,6 +55,7 @@ const Registration = () => {
     birth: "",
     country: "",
     gender: "",
+    goods: []
   });
 
   const [formEmail, setFormEmail] = useState("");

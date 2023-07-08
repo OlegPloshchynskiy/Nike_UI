@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Layout from "../../layout/Layout";
 import { Link, useLocation } from "react-router-dom";
 
@@ -13,25 +13,23 @@ import style from "./storeinfo.module.css";
 import Button from "../../components/button/Button";
 
 const StoreInfo = () => {
-
   const coordinates = JSON.parse(localStorage.getItem("coordinates")) || " ";
-  
-  
+
   const MapServices = mapService;
-  
+
   const [nikeStores, setNikeStores] = useState([]);
-  
+
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const lat = queryParams.get("lat");
   const lon = queryParams.get("lon");
-  
+
   const url = `https://www.google.com/maps/dir/${coordinates}/${lat},${lon}`;
 
   const openNavigate = () => {
-    window.open(url)
-  }
-  
+    window.open(url);
+  };
+
   useEffect(() => {
     const fetchNikeStores = async () => {
       try {
@@ -61,24 +59,24 @@ const StoreInfo = () => {
                 <p className={style.rating}>{store.rating}</p>
                 <p
                   className={
-                    store.opening_hours.open_now === true
+                    store?.opening_hours?.open_now === true
                       ? style.green
                       : style.red
                   }
                 >
-                  {store.opening_hours.open_now === true
+                  {store?.opening_hours?.open_now === true
                     ? "Open • Closes at 10:00 PM"
                     : "Closed • Opens at 11:00 AM"}
                 </p>
                 <br />
                 <p>{store.vicinity}</p>
-                <p>{store.plus_code.compound_code}</p>
+                <p>{store.plus_code?.compound_code}</p>
                 <Button title="Navigate" func={openNavigate} />
               </div>
             );
           })}
           <span>
-            <h3>Store Hours:</h3> 
+            <h3>Store Hours:</h3>
             <p>Sun - Fri: 10:00 AM - 9:00 PM</p>
             <p>Sat: 11:00 AM - 9:00 PM</p>
           </span>

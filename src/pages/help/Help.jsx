@@ -1,4 +1,3 @@
-import React from "react";
 import Layout from "../../layout/Layout";
 import Container from "../../components/container/Container";
 import { Link } from "react-router-dom";

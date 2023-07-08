@@ -1,0 +1,50 @@
+.btn_totop {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: .3s;
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    z-index: 2000;
+    border-radius: 50%;
+    background: url("../../../public/images/to_top.png");
+    animation: show .4s ease-in;
+}
+
+@keyframes show {
+    from {
+        opacity: 0;
+    }
+}
+
+.btn_totop::before {
+    content: "Top";
+    position: absolute;
+    left: 9px;
+    bottom: -30px;
+    font-size: 20px;
+    animation: slide .3s ease-in;
+    font-weight: 900;
+}
+
+@keyframes slide {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+.btn {
+    all: unset;
+}
+
+.totopImg{
+    width: 100%;
+}
+
+.btn_totop:hover {
+    scale: 1.05;
+    border-radius: 30%;
+}

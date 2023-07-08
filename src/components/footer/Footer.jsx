@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import style from "./footer.module.css";
 
 import location from "../../../public/images/location.png";
@@ -33,8 +33,8 @@ const Footer = () => {
         const lat = data.location.latitude;
         const lon = data.location.longitude;
 
-        localStorage.setItem("lat", JSON.stringify(lat));
-        localStorage.setItem("lon", JSON.stringify(lon));
+        localStorage.setItem("userLat", JSON.stringify(lat));
+        localStorage.setItem("userLon", JSON.stringify(lon));
 
         setCureLocation(countryName);
       } catch (error) {

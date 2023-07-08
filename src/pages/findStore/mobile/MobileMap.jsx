@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Search from "../../../components/search/Search";
 import NikeMap from "../../../components/mapReactComponents/NikeMap";
 
@@ -36,8 +36,8 @@ const MobileMap = ({ searchCountry, fetchCountry, nikeStores, lat, lon }) => {
         </button>
         {page ? (
           <Search
-            func={searchCountry}
-            btnFunc={fetchCountry}
+            searchCountry={searchCountry}
+            fetchCountry={fetchCountry}
             nikeStores={nikeStores}
           />
         ) : (

@@ -1,13 +1,16 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import Header from "../components/header/Header";
 import MobileHeader from "../components/mobileHeader/MobileHeader";
 import Footer from "../components/footer/Footer";
 import Container from "../components/container/Container";
-import ToTop from "../components/toTop/ToTop";
+import ToTop from "./toTop/ToTop";
 import Preloader from "./preloader/Preloader";
 
 const Layout = ({ children }) => {
+
+  const [scroll, setScroll] = useState(false)
+
   const [isLargeScreen, setIsLargeScreen] = useState(
     window.matchMedia("(min-width: 1270px)").matches
   );
@@ -32,14 +35,30 @@ const Layout = ({ children }) => {
     const timer = setTimeout(() => {
       setShowPreloader(false);
     }, 1300);
+    const scrollTop = () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth", 
+      }); 
+    }
 
     return () => {
-      clearTimeout(timer);
+      clearTimeout(timer); 
+      scrollTop()
     };
   }, []);
 
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 500) {
+      setScroll(true)
+    } else {
+      setScroll(false)
+    }
+  })
+
   return (
     <div>
+      {scroll ? <ToTop /> : <></>}
       {isLargeScreen ? <Header /> : <MobileHeader />}
       <Container>
         {showPreloader ? <Preloader /> : <></>}

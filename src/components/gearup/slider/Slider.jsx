@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import style from "./slider.module.css";
 import arrow from "../../../../public/images/best-of-airmax/arrow.png";
 

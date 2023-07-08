@@ -1,4 +1,3 @@
-import React from "react";
 import Slider from "./slider/Slider";
 
 import man_1 from "../../../public/images/gear-up-slider/man/shorts-black-short.jpg";

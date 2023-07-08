@@ -1,5 +1,3 @@
-import React from "react";
-
 import style from "./question.module.css";
 import Button from "../../../components/button/Button";
 

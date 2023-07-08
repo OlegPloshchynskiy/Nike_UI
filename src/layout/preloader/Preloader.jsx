@@ -1,5 +1,3 @@
-import React from 'react'
-
 import nike_logo from '../../../public/images/preloader-logo.png'
 
 import style from './preloader.module.css'

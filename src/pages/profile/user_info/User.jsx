@@ -1,19 +1,18 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import avatar from "../../../../public/images/person-circle-big.png";
 
-import style from "./user.module.css";
 import PhotoUpload from "../profile_photo/PhotoUpload";
 import Button from "../../../components/button/Button";
 
-const User = ({ data }) => {
-  const loginedData = JSON.parse(localStorage.getItem("logined")) || "";
+import style from "./user.module.css";
 
+const User = ({ data }) => {
   const [photo, setPhoto] = useState(avatar);
 
   const styles = {
     width: "50%",
-    background: "red",
+    background: "rgba(255, 0, 0, 0.63)",
     fontSize: "20px",
   };
 
@@ -22,36 +21,12 @@ const User = ({ data }) => {
     window.location.href = "/log_in";
   };
 
-  const [savedAccount, setSavedAccount] = useState([]);
-
-  useEffect(() => {
-    const checkAccount = () => {
-      const keys = Object.keys(localStorage);
-
-      keys.map((data) => {
-        if (data.startsWith("loginedUser")) {
-          const storedData = localStorage.getItem(data);
-          if (storedData !== null) {
-            const response = JSON.parse(storedData);
-            setSavedAccount((setData) => [...setData, response]);
-          }
-        }
-      });
-    };
-
-    checkAccount();
-  }, []);
-
   const checkData = () => {
-    savedAccount.map((elem) => {
-      if (elem.email === loginedData.email) {
-        setPhoto(elem.photo);
-      }
-    });
+    setPhoto(data.photo);
   };
 
   return (
-    <div>
+    <div className={style.profile_container}>
       <div className={style.head}>
         <div className={style.photo_container} onLoad={checkData}>
           <div className={style.avatar_block}>
@@ -77,8 +52,8 @@ const User = ({ data }) => {
           <h2>Gender</h2>
           <span>{data.gender}</span>
         </div>
-        <Button title="Sign Out" styles={styles} func={signOut} />
       </div>
+      <Button title="Sign Out" styles={styles} func={signOut} />
     </div>
   );
 };

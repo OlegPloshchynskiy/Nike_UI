@@ -6,3 +6,7 @@
 #root {
     font-family: "helvetica";
 }
+
+body {
+    overflow-x: hidden;
+}

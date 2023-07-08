@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import { useEffect, useState } from "react";
 
-import style from "./findstore.module.css";
 import Layout from "../../layout/Layout";
 
 import { mapService } from "../../services/MapServices";
@@ -9,8 +7,18 @@ import DesktopMap from "./desktop/DesktopMap";
 import MobileMap from "./mobile/MobileMap";
 
 const FindStore = () => {
+  const MapServices = mapService;
 
-  
+  const userLat = JSON.parse(localStorage.getItem("userLat"));
+  const userLon = JSON.parse(localStorage.getItem("userLon"));
+
+  const targetLat = JSON.parse(sessionStorage.getItem("userLat")) || userLat;
+  const targetLon = JSON.parse(sessionStorage.getItem("userLon")) || userLon;
+
+  const [country, setCountry] = useState("");
+  const [lat, setLat] = useState(targetLat);
+  const [lon, setLon] = useState(targetLon);
+  const [nikeStores, setNikeStores] = useState([]);
 
   const [isLargeScreen, setIsLargeScreen] = useState(
     window.matchMedia("(min-width: 1270px)").matches
@@ -29,16 +37,6 @@ const FindStore = () => {
       mediaQuery.removeListener(handleResize);
     };
   }, []);
-
-  const MapServices = mapService;
-
-  const userLat = JSON.parse(sessionStorage.getItem("lat"));
-  const userLon = JSON.parse(sessionStorage.getItem("lon"));
-
-  const [country, setCountry] = useState("");
-  const [lat, setLat] = useState(userLat);
-  const [lon, setLon] = useState(userLon);
-  const [nikeStores, setNikeStores] = useState([]);
 
   useEffect(() => {
     const fetchNikeStores = async () => {
@@ -60,38 +58,33 @@ const FindStore = () => {
       .then((json) => {
         json.map((city) => {
           setLat(city.latitude);
-          sessionStorage.setItem("lat", JSON.stringify(city.latitude));
           setLon(city.longitude);
-          sessionStorage.setItem("lon", JSON.stringify(city.longitude));
+          sessionStorage.setItem("userLat", JSON.stringify(city.latitude))
+          sessionStorage.setItem("userLon", JSON.stringify(city.longitude))
         });
       });
   };
-
-  console.log(lat);
-  console.log(lon);
 
   const searchCountry = (e) => {
     e.preventDefault();
     setCountry(e.target.value);
   };
 
-  console.log(country);
-
   return (
     <Layout>
-      {isLargeScreen ? ( 
+      {isLargeScreen ? (
         <DesktopMap
           searchCountry={searchCountry}
-          fetchCountry={fetchCountry}
           nikeStores={nikeStores}
+          fetchCountry={fetchCountry}
           lat={lat}
           lon={lon}
         />
       ) : (
         <MobileMap
           searchCountry={searchCountry}
-          fetchCountry={fetchCountry}
           nikeStores={nikeStores}
+          fetchCountry={fetchCountry}
           lat={lat}
           lon={lon}
         />

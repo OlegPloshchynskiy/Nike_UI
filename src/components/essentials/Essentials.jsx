@@ -1,4 +1,3 @@
-import React from "react";
 import Cards from "./cards/Cards";
 import mans from "../../../public/images/mans.jpg";
 import womans from "../../../public/images/womans.jpg";

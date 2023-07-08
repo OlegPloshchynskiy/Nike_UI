@@ -1,4 +1,3 @@
-import MapContainer from "../map/MapContainer";
 import { Link } from "react-router-dom";
 
 import jordan from "../../../public/images/jordan-logo.png";

@@ -5,16 +5,22 @@
     line-height: 32px;
 }
 
+.search_container {
+    width: 100%;
+    display: flex;
+}
+
 .search_box {
     display: flex;
     align-items: center;
     border: 1px solid #000;
-    border-radius: 20px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
     padding: 5px 22px;
 }
 
 #search {
-    width: 350px;
+    width: 100%;
     outline: none;
     border: none;
     font-size: 19px;

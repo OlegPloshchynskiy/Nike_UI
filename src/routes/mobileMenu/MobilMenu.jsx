@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import close_icon from "../../../public/images/x-lg.png";
 import { Link } from "react-router-dom";
 

@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import Layout from "../../layout/Layout";
 import User from "./user_info/User";
 
@@ -7,7 +6,7 @@ import nike_logo from "../../../public/images/Nike-logo.png";
 import style from "./profile.module.css"
 
 const Profile = () => {
-  const userData = JSON.parse(localStorage.getItem("logined")) || "";
+  const userData = JSON.parse(sessionStorage.getItem("logined")) || "";
 
 
 

@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import style from "./upload.module.css";
 
 const PhotoUpload = () => {
+
+  const currentUser = JSON.parse(sessionStorage.getItem("logined"))
 
   const [id, setId] = useState(0)
 
@@ -20,22 +22,29 @@ const PhotoUpload = () => {
     const file = event.target.files[0];
     const reader = new FileReader();
 
-    // reader.onloadend = () => {
-    //   setSelectedPhoto(reader.result); // Зберігаємо фото як рядок
-    //   localStorage.setItem('photo', reader.result); // Зберігаємо фото в localStorage
-    // };
+    const keys = Object.keys(localStorage);
 
-    reader.onloadend = () => {
-      const existingObject = JSON.parse(localStorage.getItem("logined"));
-      existingObject.photo = reader.result;
-      localStorage.setItem("logined", JSON.stringify(existingObject));
-      localStorage.setItem(`loginedUser${id}`, JSON.stringify(existingObject));
-      sessionStorage.setItem("logined", JSON.stringify(existingObject));
-    };
+    keys.forEach((user) => {
+      if (user.startsWith("User")) {
+        const storedData = JSON.parse(localStorage.getItem(user));
+        
+        if (storedData.email === currentUser.email) {
+          reader.onloadend = () => {
+            const existingObject = JSON.parse(localStorage.getItem("logined"));
+            existingObject.photo = reader.result;
+            localStorage.setItem("logined", JSON.stringify(existingObject));
+            localStorage.setItem(user, JSON.stringify(existingObject));
+            sessionStorage.setItem("logined", JSON.stringify(existingObject));
+          };
+          if (file) {
+            reader.readAsDataURL(file);
+          }
+        }
 
-    if (file) {
-      reader.readAsDataURL(file);
-    }
+      }
+    })
+
+
 
     window.location.reload();
   };

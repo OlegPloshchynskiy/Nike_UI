@@ -1,4 +1,3 @@
-import React from "react";
 import Search from "../../../components/search/Search";
 import NikeMap from "../../../components/mapReactComponents/NikeMap";
 
@@ -9,8 +8,8 @@ const DesktopMap = ({searchCountry, fetchCountry, nikeStores, lat, lon}) => {
   return (
     <div className={style.container}>
       <Search
-        func={searchCountry}
-        btnFunc={fetchCountry}
+        searchCountry={searchCountry}
+        fetchCountry={fetchCountry}
         nikeStores={nikeStores}
       />
       <div>

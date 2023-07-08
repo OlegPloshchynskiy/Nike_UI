@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { storeService } from "../../services/StoreServices";
 
@@ -16,13 +16,18 @@ const Shop = () => {
   const [shoe, setShoe] = useState([]);
   const [page, setPage] = useState(1);
 
+  const goodsDescription = {
+    name: "Nike Air Force 1 Mid '07",
+    type: "Men's Shoes",
+  };
+
   const handlePageCount = (e) => {
-    sessionStorage.setItem("page", JSON.stringify(e.target.value))
+    sessionStorage.setItem("page", JSON.stringify(e.target.value));
     setPage(savedPage);
     window.scrollTo({
       top: 0,
       behavior: "smooth",
-    }); 
+    });
   };
 
   useEffect(() => {
@@ -40,14 +45,17 @@ const Shop = () => {
   return (
     <Layout>
       <div className={style.content}>
-
         <h1>Shop</h1>
 
         <div className={style.gallary}>
           {shoe.map((goods, index) => {
             let price = Math.floor(Math.random() * (460 - 90 + 1)) + 90;
             return (
-              <Link className={style.card} key={index} to={`/goods_page?goods_details=${goods.urls.small}&price=${price}`}>
+              <Link
+                className={style.card}
+                key={index}
+                to={`/goods_page?image=${goods.urls.small}&price=${price}&name=${goodsDescription.name}&type=${goodsDescription.type}`}
+              >
                 <img
                   src={goods.urls.small}
                   alt=""
@@ -56,9 +64,9 @@ const Shop = () => {
                 />
                 <div className={style.detalies}>
                   <p className={style.title}>Just In</p>
-                  <p className={style.name}>Nike Air Force 1 Mid '07</p>
+                  <p className={style.name}>{goodsDescription.name}</p>
                   <p className={style.type}>
-                    Men's Shoes <br /> 1 Colour
+                    {goodsDescription.type} <br /> 1 Colour
                   </p>
                   <p className={style.price}>Price: {price} $</p>
                 </div>
