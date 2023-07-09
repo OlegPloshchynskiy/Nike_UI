@@ -15,14 +15,22 @@ import { Toaster } from "react-hot-toast";
 import style from "./mobmenu.module.css";
 
 const MobilMenu = ({ close }) => {
-  const bag = JSON.parse(localStorage.getItem("bagCount")) || 0;
-  const fav = JSON.parse(localStorage.getItem("favCount")) || 0;
 
   const loginedData = JSON.parse(sessionStorage.getItem("logined")) || "";
 
   const [photo, setPhoto] = useState(avatar);
 
   const [savedAccount, setSavedAccount] = useState([]);
+
+  const user = JSON.parse(sessionStorage.getItem("logined")) || "";
+
+  const goods = user.goods;
+
+  const checkLogined = () => {
+    if (user !== "") {
+      return goods.length < 1 ? <></> : <div className={style.count}>{goods.length}</div>
+    }
+  }
 
   useEffect(() => {
     const checkAccount = () => {
@@ -101,12 +109,12 @@ const MobilMenu = ({ close }) => {
             <Link to="/findstore" className={style.menuItemProfiles}>
               <img src={favourite} alt="" />
               <span>Favourites</span>
-              <div className={style.count}>{fav}</div>
+              <div className={style.count}></div>
             </Link>
             <Link to="/findstore" className={style.menuItemProfiles}>
               <img src={cart} alt="" />
               <span>Bag</span>
-              <div className={style.count}>{bag}</div>
+              {checkLogined}
             </Link>
             <Link to="/findstore" className={style.menuItemProfiles}>
               <img src={orders} alt="" />

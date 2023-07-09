@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 
@@ -13,7 +13,7 @@ import style from "./mobileheader.module.css";
 
 const MobileHeader = () => {
 
-  const bag = JSON.parse(localStorage.getItem("bagCount")) || 0;
+  const bag = JSON.parse(localStorage.getItem("logined")) || 0;
 
   const [menuState, setMenuState] = useState(0);
 
@@ -32,7 +32,7 @@ const MobileHeader = () => {
         <div className={style.menu_block}>
           <Link to="/" className={style.bag}>
             <img src={cart_icon} alt="Cart" />
-            <div className={style.count}>{bag}</div>
+            <div className={style.count}>{bag.goods.length}</div>
           </Link>
           <button className={style.menu_btn} onClick={handleMenu}>
             <img src={list} alt="List button" />

@@ -13,8 +13,16 @@ import style from "./header.module.css";
 import { Toaster } from "react-hot-toast";
 
 const Header = () => {
-  const bag = JSON.parse(localStorage.getItem("bagCount")) || 0;
-  const fav = JSON.parse(localStorage.getItem("favCount")) || 0;
+
+  const user = JSON.parse(sessionStorage.getItem("logined")) || "";
+
+  const goods = user.goods;
+
+  const checkLogined = () => {
+    if (user !== "") {
+      return goods.length < 1 ? <></> : <div className={style.count}>{goods.length}</div>
+    }
+  }
 
   return (
     <>
@@ -44,11 +52,11 @@ const Header = () => {
           </div>
           <Link className={style.bag}>
             <img src={favourited} alt="favourite icon" />
-            <div className={style.count}>{fav}</div>
+            
           </Link>
-          <Link className={style.bag}>
+          <Link className={style.bag} to={user === "" ? "/log_in" : "/cart"}>
             <img src={cart} alt="cart icon" />
-            <div className={style.count}>{bag}</div>
+            {checkLogined()}
           </Link>
         </div>
       </div>

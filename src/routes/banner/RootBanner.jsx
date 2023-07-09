@@ -12,23 +12,23 @@ const RootBanner = () => {
 
   const [savedAccount, setSavedAccount] = useState([]);
 
-  useEffect(() => {
-    const checkAccount = () => {
-      const keys = Object.keys(localStorage);
+  // useEffect(() => {
+  //   const checkAccount = () => {
+  //     const keys = Object.keys(localStorage);
 
-      keys.map((data) => {
-        if (data.startsWith("loginedUser")) {
-          const storedData = localStorage.getItem(data);
-          if (storedData !== null) {
-            const response = JSON.parse(storedData);
-            setSavedAccount((setData) => [...setData, response]);
-          }
-        }
-      });
-    };
+  //     keys.map((data) => {
+  //       if (data.startsWith("loginedUser")) {
+  //         const storedData = localStorage.getItem(data);
+  //         if (storedData !== null) {
+  //           const response = JSON.parse(storedData);
+  //           setSavedAccount((setData) => [...setData, response]);
+  //         }
+  //       }
+  //     });
+  //   };
 
-    checkAccount();
-  }, []);
+  //   checkAccount();
+  // }, []);
 
   const checkData = () => {
     savedAccount.map((elem) => {

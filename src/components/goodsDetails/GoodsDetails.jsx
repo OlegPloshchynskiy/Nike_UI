@@ -4,7 +4,7 @@ import style from "./details.module.css";
 import { toast } from "react-hot-toast";
 
 const GoodsDetails = ({ price, image, type, name }) => {
-  const userData = JSON.parse(sessionStorage.getItem("logined")) || [];
+  const userData = JSON.parse(sessionStorage.getItem("logined")) || "";
 
   const btn_width = { width: "100%" };
 
@@ -29,10 +29,17 @@ const GoodsDetails = ({ price, image, type, name }) => {
   };
 
   useEffect(() => {
-    setGoodsList([...userData.goods]);
-  }, []);
+    if (Array.isArray(userData.goods)) {
+      setGoodsList([...userData.goods]);
+    }
+  }, [addedGoods]);
 
   const addToBag = () => {
+    if (userData === "") {
+      window.location.href = "./log_in";
+      return;
+    }
+
     if (size === 0) {
       toast.error("Choose size!");
       return;
@@ -56,44 +63,13 @@ const GoodsDetails = ({ price, image, type, name }) => {
           localStorage.setItem("logined", JSON.stringify(existingObject));
           localStorage.setItem(`${user}`, JSON.stringify(existingObject));
           sessionStorage.setItem("logined", JSON.stringify(existingObject));
-          toast.success("Added!")
+          toast.success("Added!");
         }
       }
     });
 
     setIsAdded(true);
   };
-
-  const checkUserLogined = () => {
-    if (userData === "") {
-      return (window.location.href = "./log_in");
-    }
-    return true;
-  };
-
-
-  const clear = () => {
-
-    const keys = Object.keys(localStorage);
-
-    keys.forEach((user) => {
-      if (user.startsWith("loginedUser")) {
-        const storedData = JSON.parse(localStorage.getItem(user));
-
-        if (storedData.email === userData.email) {
-          const existingObject = JSON.parse(localStorage.getItem("logined"));
-          existingObject.goods = [];
-          localStorage.setItem("logined", JSON.stringify(existingObject));
-          localStorage.setItem(`${user}`, JSON.stringify(existingObject));
-          sessionStorage.setItem("logined", JSON.stringify(existingObject));
-        }
-      }
-    });
-
-    window.location.reload()
-  };
-
-
 
 
 
@@ -201,11 +177,7 @@ const GoodsDetails = ({ price, image, type, name }) => {
 
       <Button title="Add to Bag" styles={btn_width} func={addToBag} />
       <br />
-      <Button
-        title="Favourite"
-        styles={white_btn_style}
-        func={clear}
-      />
+      <Button title="Favourite" styles={white_btn_style} />
       <p className={style.about_goods}>
         Layer on style with the Air Max 97. The cracked leather and soft suede
         update the iconic design while the original look (inspired by Japanese
