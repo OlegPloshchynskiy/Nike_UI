@@ -32,7 +32,7 @@ const MobileHeader = () => {
         <div className={style.menu_block}>
           <Link to="/" className={style.bag}>
             <img src={cart_icon} alt="Cart" />
-            <div className={style.count}>{bag.goods.length}</div>
+            <div className={style.count}>0</div>
           </Link>
           <button className={style.menu_btn} onClick={handleMenu}>
             <img src={list} alt="List button" />

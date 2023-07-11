@@ -114,7 +114,7 @@ const MobilMenu = ({ close }) => {
             <Link to="/findstore" className={style.menuItemProfiles}>
               <img src={cart} alt="" />
               <span>Bag</span>
-              {checkLogined}
+              
             </Link>
             <Link to="/findstore" className={style.menuItemProfiles}>
               <img src={orders} alt="" />
