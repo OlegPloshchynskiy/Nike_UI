@@ -1,13 +1,10 @@
 const express = require('express');
 const axios = require('axios');
+const cors = require('cors')
 const app = express();
 const port = 3000;
 
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'http://localhost:5173');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  next();
-});
+app.use(cors());
 
 app.get('/api/nike-stores', async (req, res) => {
   const { location, radius, keyword, key } = req.query;
