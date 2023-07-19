@@ -6,9 +6,12 @@ import PhotoUpload from "../profile_photo/PhotoUpload";
 import Button from "../../../components/button/Button";
 
 import style from "./user.module.css";
+import { useNavigate } from "react-router-dom";
 
 const User = ({ data }) => {
   const [photo, setPhoto] = useState(avatar);
+
+  const navigate = useNavigate()
 
   const styles = {
     width: "50%",
@@ -18,7 +21,7 @@ const User = ({ data }) => {
 
   const signOut = () => {
     sessionStorage.setItem("logined", JSON.stringify(""));
-    window.location.href = "/log_in";
+    navigate("/log_in")
   };
 
   const checkData = () => {

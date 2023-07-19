@@ -1,7 +1,5 @@
 import Preview from "./components/bannerPreview/Preview";
 import FirstLook from "./components/first_look/FirstLook";
-import Header from "./components/header/Header";
-import Container from "./components/container/Container";
 import BestOfAir from "./components/bestOfAir/BestOfAir";
 import Featured from "./components/featured/Featured";
 import Footer from "./components/footer/Footer";

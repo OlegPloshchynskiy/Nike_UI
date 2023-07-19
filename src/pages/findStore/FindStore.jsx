@@ -5,6 +5,7 @@ import Layout from "../../layout/Layout";
 import { mapService } from "../../services/MapServices";
 import DesktopMap from "./desktop/DesktopMap";
 import MobileMap from "./mobile/MobileMap";
+import { useNavigate } from "react-router-dom";
 
 const FindStore = () => {
   const MapServices = mapService;

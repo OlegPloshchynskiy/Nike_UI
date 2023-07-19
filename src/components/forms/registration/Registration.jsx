@@ -5,13 +5,15 @@ import nike_logo from "../../../../public/images/Nike-logo.png";
 
 import style from "./registration.module.css";
 import Button from "../../button/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Toaster, toast } from "react-hot-toast";
 
 const Registration = () => {
   const [list, setList] = useState([]);
   const [valid, setValid] = useState(false);
   const [created, setCreated] = useState(false);
+
+  const navigate = useNavigate()
 
   const countriesArray = [];
   const URL = "https://countries-cities.p.rapidapi.com/location/country/list";
@@ -86,7 +88,7 @@ const Registration = () => {
     localStorage.setItem(`User${usersCount}`, JSON.stringify(formData));
     localStorage.setItem(`id`, JSON.stringify(usersCount));
     toast.success("Welcome!");
-    window.location.href = "/log_in"
+    navigate("/log_in")
   };
 
   useEffect(() => {

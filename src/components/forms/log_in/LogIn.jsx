@@ -6,13 +6,15 @@ import nike_logo from "../../../../public/images/Nike-logo.png";
 
 import style from "./login.module.css";
 import Button from "../../button/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const LogIn = () => {
   const styles = {
     width: "100%",
     borderRadius: "5px",
   };
+
+  const navigate = useNavigate()
 
   const [savedAccount, setSavedAccount] = useState([]);
 
@@ -50,12 +52,12 @@ const LogIn = () => {
 
     for (let userData of savedAccount) {
       if (
-        userData.email === formData.email &&
+        userData.email.toLowerCase() === formData.email.toLowerCase() &&
         userData.password === formData.password
         ) {
           localStorage.setItem("logined", JSON.stringify(userData))
           sessionStorage.setItem("logined", JSON.stringify(userData))
-          window.location.href = "/profile"
+          navigate("/profile")
         return;
       }
     }

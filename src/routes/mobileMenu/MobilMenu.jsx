@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import close_icon from "../../../public/images/x-lg.png";
 import { Link } from "react-router-dom";
 
@@ -15,47 +15,26 @@ import { Toaster } from "react-hot-toast";
 import style from "./mobmenu.module.css";
 
 const MobilMenu = ({ close }) => {
-
-  const loginedData = JSON.parse(sessionStorage.getItem("logined")) || "";
+  const user = JSON.parse(sessionStorage.getItem("logined")) || "";
 
   const [photo, setPhoto] = useState(avatar);
-
-  const [savedAccount, setSavedAccount] = useState([]);
-
-  const user = JSON.parse(sessionStorage.getItem("logined")) || "";
 
   const goods = user.goods;
 
   const checkLogined = () => {
     if (user !== "") {
-      return goods.length < 1 ? <></> : <div className={style.count}>{goods.length}</div>
+      return goods.length < 1 ? (
+        <></>
+      ) : (
+        <div className={style.count}>{goods.length}</div>
+      );
     }
-  }
-
-  useEffect(() => {
-    const checkAccount = () => {
-      const keys = Object.keys(localStorage);
-
-      keys.map((data) => {
-        if (data.startsWith("loginedUser")) {
-          const storedData = localStorage.getItem(data);
-          if (storedData !== null) {
-            const response = JSON.parse(storedData);
-            setSavedAccount((setData) => [...setData, response]);
-          }
-        }
-      });
-    };
-
-    checkAccount();
-  }, []);
+  };
 
   const checkData = () => {
-    savedAccount.map((elem) => {
-      if (elem.email === loginedData.email) {
-        setPhoto(elem.photo);
-      }
-    });
+    if (user !== "") {
+      setPhoto(user.photo);
+    }
   };
 
   return (
@@ -66,7 +45,7 @@ const MobilMenu = ({ close }) => {
           <button onClick={close} className={style.close_btn}>
             <img src={close_icon} alt="" />
           </button>
-          {loginedData === "" ? (
+          {user === "" ? (
             <Link className={style.profile_link} to="/membership">
               <img src={photo} alt="Profile avatar" className={style.avatar} />
               <span>Profile</span>
@@ -74,7 +53,7 @@ const MobilMenu = ({ close }) => {
           ) : (
             <Link className={style.profile_link} to="/profile">
               <img src={photo} alt="Profile avatar" className={style.avatar} />
-              <span>Hello, {loginedData.firstname}</span>
+              <span>Hello, {user.firstname}</span>
             </Link>
           )}
           <nav className={style.headerMenu}>
@@ -109,12 +88,12 @@ const MobilMenu = ({ close }) => {
             <Link to="/findstore" className={style.menuItemProfiles}>
               <img src={favourite} alt="" />
               <span>Favourites</span>
-              <div className={style.count}></div>
+              {checkLogined()}
             </Link>
-            <Link to="/findstore" className={style.menuItemProfiles}>
+            <Link to="/cart" className={style.menuItemProfiles}>
               <img src={cart} alt="" />
               <span>Bag</span>
-              
+              {checkLogined()}
             </Link>
             <Link to="/findstore" className={style.menuItemProfiles}>
               <img src={orders} alt="" />

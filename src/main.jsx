@@ -1,14 +1,11 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
-
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import ReactDOM from "react-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { createBrowserHistory } from "history";
 
 import App from "./App.jsx";
 import FindStore from "./pages/findStore/FindStore.jsx";
 import Help from "./pages/help/Help.jsx";
-
-import "normalize.css";
-import "./index.css";
 import StoreInfo from "./pages/storeInfo/StoreInfo.jsx";
 import Shop from "./pages/shop/Shop.jsx";
 import GoodsPage from "./pages/goods_page/GoodsPage.jsx";
@@ -18,55 +15,27 @@ import Profile from "./pages/profile/Profile.jsx";
 import Membership from "./pages/membership/Membership.jsx";
 import Cart from "./pages/cart/Cart.jsx";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />
-  },
-  {
-    path: "/findstore",
-    element: <FindStore />
-  },
-  {
-    path: "/help",
-    element: <Help />
-  },
-  {
-    path: "/storeinfo",
-    element: <StoreInfo />
-  },
-  {
-    path: "/shop",
-    element: <Shop />
-  },
-  {
-    path: "/goods_page",
-    element: <GoodsPage />
-  },
-  {
-    path: "/join_us",
-    element: <Registration />
-  },
-  {
-    path: "/log_in",
-    element: <LogIn />
-  },
-  {
-    path: "/profile",
-    element: <Profile />
-  },
-  {
-    path: "/membership",
-    element: <Membership />
-  },
-  {
-    path: "/cart",
-    element: <Cart />
-  }
-])
+import "normalize.css";
+import "./index.css";
+
+const history = createBrowserHistory()
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router}/>
+    <BrowserRouter history={history}>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/findstore" element={<FindStore />} />
+        <Route path="/help" element={<Help />} />
+        <Route path="/storeinfo" element={<StoreInfo />} />
+        <Route path="/shop" element={<Shop />} />
+        <Route path="/goods_page" element={<GoodsPage />} />
+        <Route path="/join_us" element={<Registration />} />
+        <Route path="/log_in" element={<LogIn />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/membership" element={<Membership />} />
+        <Route path="/cart" element={<Cart />} />
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Button from "../button/Button";
 import style from "./details.module.css";
 import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const GoodsDetails = ({ price, image, type, name }) => {
   const userData = JSON.parse(sessionStorage.getItem("logined")) || "";
@@ -12,6 +13,8 @@ const GoodsDetails = ({ price, image, type, name }) => {
   const [id, setId] = useState(0);
   const [goodsList, setGoodsList] = useState([]);
   const [isAdded, setIsAdded] = useState(false);
+
+  const navigate = useNavigate()
 
   const white_btn_style = {
     width: "100%",
@@ -36,7 +39,7 @@ const GoodsDetails = ({ price, image, type, name }) => {
 
   const addToBag = () => {
     if (userData === "") {
-      window.location.href = "./log_in";
+      navigate("/log_in")
       return;
     }
 

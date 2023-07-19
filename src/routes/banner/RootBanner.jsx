@@ -12,30 +12,10 @@ const RootBanner = () => {
 
   const [savedAccount, setSavedAccount] = useState([]);
 
-  // useEffect(() => {
-  //   const checkAccount = () => {
-  //     const keys = Object.keys(localStorage);
-
-  //     keys.map((data) => {
-  //       if (data.startsWith("loginedUser")) {
-  //         const storedData = localStorage.getItem(data);
-  //         if (storedData !== null) {
-  //           const response = JSON.parse(storedData);
-  //           setSavedAccount((setData) => [...setData, response]);
-  //         }
-  //       }
-  //     });
-  //   };
-
-  //   checkAccount();
-  // }, []);
-
   const checkData = () => {
-    savedAccount.map((elem) => {
-      if (elem.email === loginedData.email) {
-        setPhoto(elem.photo);
-      }
-    });
+    if (loginedData !== "") {
+      setPhoto(loginedData.photo);
+    }
   };
 
   const checkLogined = () => {
@@ -56,9 +36,7 @@ const RootBanner = () => {
         <>
           <Link to="/profile" className={style.menuItem}>
             <img src={photo} alt="Profile photo" className={style.avatar} />
-            <span>
-              Hello, {loginedData.firstname}
-            </span>
+            <span>Hello, {loginedData.firstname}</span>
           </Link>
         </>
       );

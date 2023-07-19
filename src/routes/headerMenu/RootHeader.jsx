@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import style from "./header.module.css";
 
 const RootHeader = () => {
+
   return (
     <nav className={style.headerMenu}>
       <Link to="/shop" className={style.menuItem}>

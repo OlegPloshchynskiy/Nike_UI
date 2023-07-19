@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import style from "./shop.module.css";
 
 const Shop = () => {
+
   const StoreServices = storeService;
 
   const savedPage = JSON.parse(sessionStorage.getItem("page"));

@@ -4,14 +4,16 @@ import User from "./user_info/User";
 import nike_logo from "../../../public/images/Nike-logo.png";
 
 import style from "./profile.module.css"
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
   const userData = JSON.parse(sessionStorage.getItem("logined")) || "";
 
+  const navigate = useNavigate()
 
 
   if (userData === "") {
-    window.location.href = "/log_in";
+    navigate("/log_in")
   }
 
   return (
