@@ -7,12 +7,4 @@ export default defineConfig({
   server: {
     historyApiFallback: true,
   },
-  // build: {
-  //   ssr: true,
-  //   rollupOptions: {
-  //     input: {
-  //       main: './src/main.jsx', // Ваш вхідний файл для серверного рендерингу (SSR)
-  //     },
-  //   },
-  // },
 })

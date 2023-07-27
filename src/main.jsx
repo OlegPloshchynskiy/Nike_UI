@@ -22,8 +22,8 @@ const history = createBrowserHistory()
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter history={history}>
-      <Routes>
+    <BrowserRouter>
+      <Routes history={history}>
         <Route path="/" element={<App />} />
         <Route path="/findstore" element={<FindStore />} />
         <Route path="/help" element={<Help />} />

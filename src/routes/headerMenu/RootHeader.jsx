@@ -1,29 +1,33 @@
-import { Link } from "react-router-dom";
-
-import style from "./header.module.css";
+import { useNavigate } from 'react-router-dom';
+import style from './header.module.css';
 
 const RootHeader = () => {
+  const navigate = useNavigate();
+
+  const handleNavigation = (path) => {
+    navigate(path);
+  };
 
   return (
     <nav className={style.headerMenu}>
-      <Link to="/shop" className={style.menuItem}>
+      <button className={style.menuItem} onClick={() => handleNavigation('/shop')}>
         New & Featured
-      </Link>
-      <Link to="/shop" className={style.menuItem}>
+      </button>
+      <button className={style.menuItem} onClick={() => handleNavigation('/shop')}>
         Men
-      </Link>
-      <Link to="/shop" className={style.menuItem}>
+      </button>
+      <button className={style.menuItem} onClick={() => handleNavigation('/shop')}>
         Women
-      </Link>
-      <Link to="/shop" className={style.menuItem}>
+      </button>
+      <button className={style.menuItem} onClick={() => handleNavigation('/shop')}>
         Kids
-      </Link>
-      <Link to="/shop" className={style.menuItem}>
+      </button>
+      <button className={style.menuItem} onClick={() => handleNavigation('/shop')}>
         Sale
-      </Link>
-      <Link to="findstore" className={style.menuItem}>
+      </button>
+      <button className={style.menuItem} onClick={() => handleNavigation('/shop')}>
         SNKRS
-      </Link>
+      </button>
     </nav>
   );
 };
